@@ -1,0 +1,15 @@
+{
+  "name": "ejemplos-de-patrones-de-dise-o",
+  "version": "1.0.0",
+  "description": "Este repositorio contiene implementaciones simples y comentadas de los principales patrones de diseño en TypeScript. El objetivo es facilitar la comprensión de cada patrón y mostrar cómo pueden aplicarse en proyectos reales.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
