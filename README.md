@@ -1,2 +1,10 @@
-# Ejemplos-de-patrones-de-dise-o
-Repositorio de ejemplos prácticos de patrones de diseño, organizados por categoría y escritos en TypeScript. El objetivo es ofrecer implementaciones limpias, comentadas y fácilmente reutilizables que sirvan como referencia para desarrolladores que deseen comprender y aplicar estos patrones en proyectos reales.
+# 🧩 Ejemplos de Patrones de Diseño
+
+Este repositorio contiene implementaciones simples y comentadas de los principales patrones de diseño en TypeScript. El objetivo es facilitar la comprensión de cada patrón y mostrar cómo pueden aplicarse en proyectos reales.
+
+## 📚 Categorías
+- 🔨 **Creacionales**: Singleton, Factory Method, Abstract Factory...
+- 🧱 **Estructurales**: Adapter, Facade, Decorator...
+- 🧠 **Comportamiento**: Strategy, Observer, Command...
+
+Cada ejemplo incluye una breve explicación y código funcional 💡.
