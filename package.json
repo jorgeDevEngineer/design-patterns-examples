@@ -4,12 +4,20 @@
   "description": "Este repositorio contiene implementaciones simples y comentadas de los principales patrones de diseño en TypeScript. El objetivo es facilitar la comprensión de cada patrón y mostrar cómo pueden aplicarse en proyectos reales.",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "clean": "rm -rf dist",
+    "start": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^24.1.0",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "inquirer": "^12.9.0"
   }
 }
