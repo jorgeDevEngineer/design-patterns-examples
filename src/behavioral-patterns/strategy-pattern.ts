@@ -43,7 +43,7 @@ class AtaqueHechizo implements AtaquePersonaje{
     }
 }
 /* Estrategias interfaces y concretas  */
-class Jugar {
+export class Strategy {
     public static main():void {
         let magoGuerrero:Personaje = new Personaje("hechicero", new AtaqueHechizo()); //Al instaciar una clase concreta se cierra con paréntesis
         magoGuerrero.ejecutarAtaque();
@@ -52,5 +52,3 @@ class Jugar {
         console.log("Yo soy un: " + magoGuerrero.getNombre());
     }
 }
-
-Jugar.main();

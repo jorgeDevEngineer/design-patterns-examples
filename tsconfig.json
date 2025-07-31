@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "CommonJS",
-    "rootDir": "src",
-    "outDir": "dist",
-    "strict": true,
-    "esModuleInterop": true
+    "target": "ES2020",           // Soporte moderno de JS (async/await, etc.)
+    "module": "CommonJS",         // Ideal para Node.js (usa require/export)
+    "rootDir": "./src",           // Carpeta donde están tus archivos fuente
+    "outDir": "./dist",           // Carpeta donde se compilan los archivos JS
+    "strict": true,               // Activa todas las comprobaciones estrictas
+    "esModuleInterop": true       // Permite importar módulos CommonJS como 'import inquirer from'
   },
-  "include": ["src"]
+  "include": ["src"]              // Solo compila archivos dentro de /src
 }
