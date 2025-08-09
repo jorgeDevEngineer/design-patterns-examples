@@ -1,11 +1,11 @@
 import inquirer from 'inquirer';
-import { Strategy } from './behavioral-patterns/strategy-pattern';
+import { Strategy } from './behavioral-patterns/strategy';
 // import { Observer } from './behavioral-patterns/observer-pattern';
 // import { FactoryMethod } from './creational-patterns/factory-method';
 // import { AbstractFactory } from './creational-patterns/abstract-factory';
 // import { Builder } from './creational-patterns/builder';
 // import { Prototype } from './creational-patterns/prototype';
-// import { Singleton } from './creational-patterns/singleton';
+import { Singleton } from './creational-patterns/singleton';
 // import { Adapter } from './structural-patterns/adapter';
 // import { Bridge } from './structural-patterns/bridge';
 // import { Composite } from './structural-patterns/composite';
@@ -39,7 +39,7 @@ async function mostrarMenu() {
                     // { name: '🏢 Abstract Factory', value: 'abstractFactory' },
                     // { name: '🔨 Builder', value: 'builder' },
                     // { name: '🧬 Prototype', value: 'prototype' },
-                    // { name: '🔒 Singleton', value: 'singleton' },
+                    { name: '🔒 Singleton', value: 'singleton' },
 
                     // Estructurales
                     // { name: '🔌 Adapter', value: 'adapter' },
@@ -84,10 +84,10 @@ async function mostrarMenu() {
             //     console.log(`\nEjemplo de Prototype 🧬\n`);
             //     Prototype.main();
             //     break;
-            // case 'singleton':
-            //     console.log(`\nEjemplo de Singleton 🔒\n`);
-            //     Singleton.main();
-            //     break;
+            case 'singleton':
+                console.log(`\nEjemplo de Singleton 🔒\n`);
+                Singleton.main();
+                break;
             // case 'adapter':
             //     console.log(`\nEjemplo de Adapter 🔌\n`);
             //     Adapter.main();

@@ -13,9 +13,9 @@ Además, incluye un **menú interactivo en consola** que permite explorar los pa
 
 Aquí encontrarás los patrones clasificados por su propósito:
 
-- 🔨 **Creacionales** (`creational-patterns/`): Patrones que se encargan de la creación de objetos, aumentando la flexibilidad y reutilización del código. Ejemplos como Singleton, Factory Method, Abstract Factory, etc.
-- 🧱 **Estructurales** (`structural-patterns/`): Patrones que se ocupan de la composición de clases y objetos, formando estructuras más grandes y eficientes. Ejemplos como Adapter, Facade, Decorator, etc.
-- 🧠 **Comportamiento** (`behavioral-patterns/`): Patrones que se enfocan en la comunicación y las interacciones entre objetos, mejorando la flexibilidad en la asignación de responsabilidades. Ejemplos como Strategy, Observer, Command, etc.
+- 🔨 **Creacionales** (`src/creational-patterns/`): Patrones que se encargan de la creación de objetos, aumentando la flexibilidad y reutilización del código. Ejemplos como Singleton, Factory Method, Abstract Factory, etc.
+- 🧱 **Estructurales** (`src/structural-patterns/`): Patrones que se ocupan de la composición de clases y objetos, formando estructuras más grandes y eficientes. Ejemplos como Adapter, Facade, Decorator, etc.
+- 🧠 **Comportamiento** (`src/behavioral-patterns/`): Patrones que se enfocan en la comunicación y las interacciones entre objetos, mejorando la flexibilidad en la asignación de responsabilidades. Ejemplos como Strategy, Observer, Command, etc.
 
 Cada ejemplo incluye una breve explicación y **código funcional** 💡.
 
@@ -27,10 +27,10 @@ Cada ejemplo incluye una breve explicación y **código funcional** 💡.
 
 Antes de comenzar, asegúrate de tener instalado:
 
-- **Node.js** (versión recomendada: 18.x o superior)
+- **Node.js** (versión recomendada: 22.x o superior)
 - **npm** (se instala automáticamente con Node.js)
 
-Verifica la instalación con:
+Verifica la instalación en la terminal con:
 
 ```bash
 node -v
@@ -42,7 +42,7 @@ npm -v
 1. **Clona el repositorio:**
 
     ```bash
-    git clone https://github.com/tu-usuario/design-patterns-examples.git
+    git clone https://github.com/jorgeDevEngineer/design-patterns-examples
     cd design-patterns-examples
     ```
 
@@ -85,7 +85,7 @@ El archivo `src/index.ts` contiene un menú en consola que te permite selecciona
     npm start
     ```
 
-3. Selecciona el patrón que deseas explorar. Los patrones están comentados por defecto y puedes ir activándolos uno por uno.
+3. Selecciona el patrón que deseas explorar. 
 
 -----
 
