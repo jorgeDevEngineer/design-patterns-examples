@@ -1,21 +1,21 @@
 import inquirer from 'inquirer';
-import { Strategy } from './behavioral-patterns/strategy-pattern';
+import { Strategy } from './behavioral-patterns/strategy';
 // import { Observer } from './behavioral-patterns/observer-pattern';
 // import { FactoryMethod } from './creational-patterns/factory-method';
 // import { AbstractFactory } from './creational-patterns/abstract-factory';
 // import { Builder } from './creational-patterns/builder';
 // import { Prototype } from './creational-patterns/prototype';
-// import { Singleton } from './creational-patterns/singleton';
+import { Singleton } from './creational-patterns/singleton';
 // import { Adapter } from './structural-patterns/adapter';
 // import { Bridge } from './structural-patterns/bridge';
 // import { Composite } from './structural-patterns/composite';
 // import { Decorator } from './structural-patterns/decorator';
-// import { Facade } from './structural-patterns/facade';
+import { Facade } from './structural-patterns/facade';
 // import { Flyweight } from './structural-patterns/flyweight';
 // import { Proxy } from './structural-patterns/proxy';
 // import { ChainOfResponsibility } from './behavioral-patterns/chain-of-responsibility';
 // import { Command } from './behavioral-patterns/command';
-// import { Iterator } from './behavioral-patterns/iterator';
+import { Iterator } from './behavioral-patterns/iterator';
 // import { Mediator } from './behavioral-patterns/mediator';
 // import { Memento } from './behavioral-patterns/memento';
 // import { State } from './behavioral-patterns/state';
@@ -39,21 +39,21 @@ async function mostrarMenu() {
                     // { name: '🏢 Abstract Factory', value: 'abstractFactory' },
                     // { name: '🔨 Builder', value: 'builder' },
                     // { name: '🧬 Prototype', value: 'prototype' },
-                    // { name: '🔒 Singleton', value: 'singleton' },
+                    { name: '🔒 Singleton', value: 'singleton' },
 
                     // Estructurales
                     // { name: '🔌 Adapter', value: 'adapter' },
                     // { name: '🌉 Bridge', value: 'bridge' },
                     // { name: '🌿 Composite', value: 'composite' },
                     // { name: '🎨 Decorator', value: 'decorator' },
-                    // { name: '🎭 Facade', value: 'facade' },
+                    { name: '🎭 Facade', value: 'facade' },
                     // { name: '🪶 Flyweight', value: 'flyweight' },
                     // { name: '🕵️ Proxy', value: 'proxy' },
 
                     // Comportamiento
                     // { name: '🔗 Chain of Responsibility', value: 'chain' },
                     // { name: '🧾 Command', value: 'command' },
-                    // { name: '📚 Iterator', value: 'iterator' },
+                    { name: '📚 Iterator', value: 'iterator' },
                     // { name: '🗣️ Mediator', value: 'mediator' },
                     // { name: '🧠 Memento', value: 'memento' },
                     // { name: '👀 Observer', value: 'observer' },
@@ -84,10 +84,10 @@ async function mostrarMenu() {
             //     console.log(`\nEjemplo de Prototype 🧬\n`);
             //     Prototype.main();
             //     break;
-            // case 'singleton':
-            //     console.log(`\nEjemplo de Singleton 🔒\n`);
-            //     Singleton.main();
-            //     break;
+            case 'singleton':
+                console.log(`\nEjemplo de Singleton 🔒\n`);
+                Singleton.main();
+                break;
             // case 'adapter':
             //     console.log(`\nEjemplo de Adapter 🔌\n`);
             //     Adapter.main();
@@ -104,10 +104,10 @@ async function mostrarMenu() {
             //     console.log(`\nEjemplo de Decorator 🎨\n`);
             //     Decorator.main();
             //     break;
-            // case 'facade':
-            //     console.log(`\nEjemplo de Facade 🎭\n`);
-            //     Facade.main();
-            //     break;
+            case 'facade':
+                console.log(`\nEjemplo de Facade 🎭\n`);
+                Facade.main();
+                break;
             // case 'flyweight':
             //     console.log(`\nEjemplo de Flyweight 🪶\n`);
             //     Flyweight.main();
@@ -124,10 +124,10 @@ async function mostrarMenu() {
             //     console.log(`\nEjemplo de Command 🧾\n`);
             //     Command.main();
             //     break;
-            // case 'iterator':
-            //     console.log(`\nEjemplo de Iterator 📚\n`);
-            //     Iterator.main();
-            //     break;
+            case 'iterator':
+                console.log(`\nEjemplo de Iterator 📚\n`);
+                Iterator.main();
+                break;
             // case 'mediator':
             //     console.log(`\nEjemplo de Mediator 🗣️\n`);
             //     Mediator.main();
