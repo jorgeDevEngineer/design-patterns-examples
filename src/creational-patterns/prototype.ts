@@ -67,9 +67,14 @@ export class Prototype {
     console.log("Batallon creado");
 
     batallon.forEach(stormtrooper => {
-      console.log(`Stormtrooper ID: ${stormtrooper.ID}, Rango: ${stormtrooper.rango}, Legion: ${stormtrooper.legion}`);
+      console.log(`Stormtrooper ID: ${stormtrooper.ID}, Rango: ${stormtrooper.rango}, Legion: ${stormtrooper.legion}, Equipo: ${stormtrooper.equipo.join(", ")}`);
     });
 
-    console.log("Original: " + prototipo);
+    console.log("Original:", {
+      ID: prototipo.ID,
+      rango: prototipo.rango,
+      equipo: prototipo.equipo,
+      legion: prototipo.legion
+    });
   }
 } 
