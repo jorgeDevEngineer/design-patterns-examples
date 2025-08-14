@@ -6,7 +6,7 @@ import { Strategy } from './behavioral-patterns/strategy';
 // import { Builder } from './creational-patterns/builder';
 import { Prototype } from './creational-patterns/prototype';
 import { Singleton } from './creational-patterns/singleton';
-// import { Adapter } from './structural-patterns/adapter';
+import { Adapter } from './structural-patterns/adapter';
 // import { Bridge } from './structural-patterns/bridge';
 // import { Composite } from './structural-patterns/composite';
 // import { Decorator } from './structural-patterns/decorator';
@@ -42,7 +42,7 @@ async function mostrarMenu() {
                     { name: '🔒 Singleton', value: 'singleton' },
 
                     // Estructurales
-                    // { name: '🔌 Adapter', value: 'adapter' },
+                    { name: '🔌 Adapter', value: 'adapter' },
                     // { name: '🌉 Bridge', value: 'bridge' },
                     // { name: '🌿 Composite', value: 'composite' },
                     // { name: '🎨 Decorator', value: 'decorator' },
@@ -88,10 +88,10 @@ async function mostrarMenu() {
                 console.log(`\nEjemplo de Singleton 🔒\n`);
                 Singleton.main();
                 break;
-            // case 'adapter':
-            //     console.log(`\nEjemplo de Adapter 🔌\n`);
-            //     Adapter.main();
-            //     break;
+            case 'adapter':
+                console.log(`\nEjemplo de Adapter 🔌\n`);
+                Adapter.main();
+                break;
             // case 'bridge':
             //     console.log(`\nEjemplo de Bridge 🌉\n`);
             //     Bridge.main();
