@@ -19,7 +19,7 @@ import { Iterator } from './behavioral-patterns/iterator';
 // import { Mediator } from './behavioral-patterns/mediator';
 // import { Memento } from './behavioral-patterns/memento';
 // import { State } from './behavioral-patterns/state';
-// import { TemplateMethod } from './behavioral-patterns/template-method';
+import { TemplateMethod } from './behavioral-patterns/templateMethod';
 // import { Visitor } from './behavioral-patterns/visitor';
 
 async function mostrarMenu() {
@@ -59,7 +59,7 @@ async function mostrarMenu() {
                     // { name: '👀 Observer', value: 'observer' },
                     // { name: '🔄 State', value: 'state' },
                     { name: '🧠 Strategy', value: 'strategy' },
-                    // { name: '📋 Template Method', value: 'template' },
+                    { name: '📋 Template Method', value: 'templateMethod' },
                     // { name: '🧳 Visitor', value: 'visitor' },
 
                     { name: '❌ Salir', value: 'salir' },
@@ -148,10 +148,10 @@ async function mostrarMenu() {
                 console.log(`\nEjemplo de Strategy 🧠\n`);
                 Strategy.main();
                 break;
-            // case 'template':
-            //     console.log(`\nEjemplo de Template Method 📋\n`);
-            //     TemplateMethod.main();
-            //     break;
+            case 'templateMethod':
+                console.log(`\nEjemplo de Template Method 📋\n`);
+                TemplateMethod.main();
+                break;
             // case 'visitor':
             //     console.log(`\nEjemplo de Visitor 🧳\n`);
             //     Visitor.main();
