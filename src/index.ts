@@ -1,6 +1,6 @@
 import inquirer from 'inquirer';
 import { Strategy } from './behavioral-patterns/strategy';
-// import { Observer } from './behavioral-patterns/observer-pattern';
+import { Observer } from './behavioral-patterns/observer';
 // import { FactoryMethod } from './creational-patterns/factory-method';
 // import { AbstractFactory } from './creational-patterns/abstract-factory';
 // import { Builder } from './creational-patterns/builder';
@@ -56,7 +56,7 @@ async function mostrarMenu() {
                     { name: '📚 Iterator', value: 'iterator' },
                     // { name: '🗣️ Mediator', value: 'mediator' },
                     // { name: '🧠 Memento', value: 'memento' },
-                    // { name: '👀 Observer', value: 'observer' },
+                    { name: '👀 Observer', value: 'observer' },
                     // { name: '🔄 State', value: 'state' },
                     { name: '🧠 Strategy', value: 'strategy' },
                     { name: '📋 Template Method', value: 'templateMethod' },
@@ -136,10 +136,10 @@ async function mostrarMenu() {
             //     console.log(`\nEjemplo de Memento 🧠\n`);
             //     Memento.main();
             //     break;
-            // case 'observer':
-            //     console.log(`\nEjemplo de Observer 👀\n`);
-            //     Observer.main();
-            //     break;
+            case 'observer':
+                console.log(`\nEjemplo de Observer 👀\n`);
+                Observer.main();
+                break;
             // case 'state':
             //     console.log(`\nEjemplo de State 🔄\n`);
             //     State.main();
