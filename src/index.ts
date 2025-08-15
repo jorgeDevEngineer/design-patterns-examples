@@ -1,6 +1,6 @@
 import inquirer from 'inquirer';
 import { Strategy } from './behavioral-patterns/strategy';
-// import { Observer } from './behavioral-patterns/observer-pattern';
+import { Observer } from './behavioral-patterns/observer';
 // import { FactoryMethod } from './creational-patterns/factory-method';
 // import { AbstractFactory } from './creational-patterns/abstract-factory';
 // import { Builder } from './creational-patterns/builder';
@@ -19,7 +19,7 @@ import { Iterator } from './behavioral-patterns/iterator';
 // import { Mediator } from './behavioral-patterns/mediator';
 // import { Memento } from './behavioral-patterns/memento';
 // import { State } from './behavioral-patterns/state';
-// import { TemplateMethod } from './behavioral-patterns/template-method';
+import { TemplateMethod } from './behavioral-patterns/templateMethod';
 // import { Visitor } from './behavioral-patterns/visitor';
 
 async function mostrarMenu() {
@@ -56,10 +56,10 @@ async function mostrarMenu() {
                     { name: '📚 Iterator', value: 'iterator' },
                     // { name: '🗣️ Mediator', value: 'mediator' },
                     // { name: '🧠 Memento', value: 'memento' },
-                    // { name: '👀 Observer', value: 'observer' },
+                    { name: '👀 Observer', value: 'observer' },
                     // { name: '🔄 State', value: 'state' },
                     { name: '🧠 Strategy', value: 'strategy' },
-                    // { name: '📋 Template Method', value: 'template' },
+                    { name: '📋 Template Method', value: 'templateMethod' },
                     // { name: '🧳 Visitor', value: 'visitor' },
 
                     { name: '❌ Salir', value: 'salir' },
@@ -136,10 +136,10 @@ async function mostrarMenu() {
             //     console.log(`\nEjemplo de Memento 🧠\n`);
             //     Memento.main();
             //     break;
-            // case 'observer':
-            //     console.log(`\nEjemplo de Observer 👀\n`);
-            //     Observer.main();
-            //     break;
+            case 'observer':
+                console.log(`\nEjemplo de Observer 👀\n`);
+                Observer.main();
+                break;
             // case 'state':
             //     console.log(`\nEjemplo de State 🔄\n`);
             //     State.main();
@@ -148,10 +148,10 @@ async function mostrarMenu() {
                 console.log(`\nEjemplo de Strategy 🧠\n`);
                 Strategy.main();
                 break;
-            // case 'template':
-            //     console.log(`\nEjemplo de Template Method 📋\n`);
-            //     TemplateMethod.main();
-            //     break;
+            case 'templateMethod':
+                console.log(`\nEjemplo de Template Method 📋\n`);
+                TemplateMethod.main();
+                break;
             // case 'visitor':
             //     console.log(`\nEjemplo de Visitor 🧳\n`);
             //     Visitor.main();
