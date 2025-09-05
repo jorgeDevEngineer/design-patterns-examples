@@ -9,7 +9,7 @@ import { Singleton } from './creational-patterns/singleton';
 import { Adapter } from './structural-patterns/adapter';
 // import { Bridge } from './structural-patterns/bridge';
 // import { Composite } from './structural-patterns/composite';
-// import { Decorator } from './structural-patterns/decorator';
+import { Decorator } from './structural-patterns/decorator';
 import { Facade } from './structural-patterns/facade';
 // import { Flyweight } from './structural-patterns/flyweight';
 // import { Proxy } from './structural-patterns/proxy';
@@ -45,7 +45,7 @@ async function mostrarMenu() {
                     { name: '🔌 Adapter', value: 'adapter' },
                     // { name: '🌉 Bridge', value: 'bridge' },
                     // { name: '🌿 Composite', value: 'composite' },
-                    // { name: '🎨 Decorator', value: 'decorator' },
+                    { name: '🎨 Decorator', value: 'decorator' },
                     { name: '🎭 Facade', value: 'facade' },
                     // { name: '🪶 Flyweight', value: 'flyweight' },
                     // { name: '🕵️ Proxy', value: 'proxy' },
@@ -100,10 +100,10 @@ async function mostrarMenu() {
             //     console.log(`\nEjemplo de Composite 🌿\n`);
             //     Composite.main();
             //     break;
-            // case 'decorator':
-            //     console.log(`\nEjemplo de Decorator 🎨\n`);
-            //     Decorator.main();
-            //     break;
+            case 'decorator':
+                console.log(`\nEjemplo de Decorator 🎨\n`);
+                Decorator.main();
+                break;
             case 'facade':
                 console.log(`\nEjemplo de Facade 🎭\n`);
                 Facade.main();
