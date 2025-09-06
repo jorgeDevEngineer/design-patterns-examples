@@ -14,10 +14,10 @@ import { Facade } from './structural-patterns/facade';
 // import { Flyweight } from './structural-patterns/flyweight';
 import { Proxy } from './structural-patterns/proxy';
 // import { ChainOfResponsibility } from './behavioral-patterns/chain-of-responsibility';
-// import { Command } from './behavioral-patterns/command';
+import { Command } from './behavioral-patterns/command';
 import { Iterator } from './behavioral-patterns/iterator';
 // import { Mediator } from './behavioral-patterns/mediator';
-// import { Memento } from './behavioral-patterns/memento';
+import { Memento } from './behavioral-patterns/memento';
 // import { State } from './behavioral-patterns/state';
 import { TemplateMethod } from './behavioral-patterns/templateMethod';
 // import { Visitor } from './behavioral-patterns/visitor';
@@ -52,10 +52,10 @@ async function mostrarMenu() {
 
                     // Comportamiento
                     // { name: '🔗 Chain of Responsibility', value: 'chain' },
-                    // { name: '🧾 Command', value: 'command' },
+                    { name: '🧾 Command', value: 'command' },
                     { name: '📚 Iterator', value: 'iterator' },
                     // { name: '🗣️ Mediator', value: 'mediator' },
-                    // { name: '🧠 Memento', value: 'memento' },
+                    { name: '🧠 Memento', value: 'memento' },
                     //{ name: '👀 Observer', value: 'observer' },
                     // { name: '🔄 State', value: 'state' },
                     { name: '🧠 Strategy', value: 'strategy' },
@@ -120,10 +120,10 @@ async function mostrarMenu() {
             //     console.log(`\nEjemplo de Chain of Responsibility 🔗\n`);
             //     ChainOfResponsibility.main();
             //     break;
-            // case 'command':
-            //     console.log(`\nEjemplo de Command 🧾\n`);
-            //     Command.main();
-            //     break;
+            case 'command':
+                console.log(`\nEjemplo de Command 🧾\n`);
+                Command.main();
+                break;
             case 'iterator':
                 console.log(`\nEjemplo de Iterator 📚\n`);
                 Iterator.main();
@@ -132,10 +132,10 @@ async function mostrarMenu() {
             //     console.log(`\nEjemplo de Mediator 🗣️\n`);
             //     Mediator.main();
             //     break;
-            // case 'memento':
-            //     console.log(`\nEjemplo de Memento 🧠\n`);
-            //     Memento.main();
-            //     break;
+            case 'memento':
+                console.log(`\nEjemplo de Memento 🧠\n`);
+                Memento.main();
+                break;
             case 'observer':
                 console.log(`\nEjemplo de Observer 👀\n`);
                 Observer.main();
