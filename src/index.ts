@@ -12,7 +12,7 @@ import { Adapter } from './structural-patterns/adapter';
 import { Decorator } from './structural-patterns/decorator';
 import { Facade } from './structural-patterns/facade';
 // import { Flyweight } from './structural-patterns/flyweight';
-// import { Proxy } from './structural-patterns/proxy';
+import { Proxy } from './structural-patterns/proxy';
 // import { ChainOfResponsibility } from './behavioral-patterns/chain-of-responsibility';
 // import { Command } from './behavioral-patterns/command';
 import { Iterator } from './behavioral-patterns/iterator';
@@ -48,7 +48,7 @@ async function mostrarMenu() {
                     { name: '🎨 Decorator', value: 'decorator' },
                     { name: '🎭 Facade', value: 'facade' },
                     // { name: '🪶 Flyweight', value: 'flyweight' },
-                    // { name: '🕵️ Proxy', value: 'proxy' },
+                    { name: '🕵️ Proxy', value: 'proxy' },
 
                     // Comportamiento
                     // { name: '🔗 Chain of Responsibility', value: 'chain' },
@@ -56,7 +56,7 @@ async function mostrarMenu() {
                     { name: '📚 Iterator', value: 'iterator' },
                     // { name: '🗣️ Mediator', value: 'mediator' },
                     // { name: '🧠 Memento', value: 'memento' },
-                    { name: '👀 Observer', value: 'observer' },
+                    //{ name: '👀 Observer', value: 'observer' },
                     // { name: '🔄 State', value: 'state' },
                     { name: '🧠 Strategy', value: 'strategy' },
                     { name: '📋 Template Method', value: 'templateMethod' },
@@ -112,10 +112,10 @@ async function mostrarMenu() {
             //     console.log(`\nEjemplo de Flyweight 🪶\n`);
             //     Flyweight.main();
             //     break;
-            // case 'proxy':
-            //     console.log(`\nEjemplo de Proxy 🕵️\n`);
-            //     Proxy.main();
-            //     break;
+            case 'proxy':
+                console.log(`\nEjemplo de Proxy 🕵️\n`);
+                Proxy.main();
+                break;
             // case 'chain':
             //     console.log(`\nEjemplo de Chain of Responsibility 🔗\n`);
             //     ChainOfResponsibility.main();
