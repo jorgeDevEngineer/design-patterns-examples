@@ -2,7 +2,7 @@ import inquirer from 'inquirer';
 import { Strategy } from './behavioral-patterns/strategy';
 import { Observer } from './behavioral-patterns/observer';
 import { FactoryMethod } from './creational-patterns/factoryMethod';
-// import { AbstractFactory } from './creational-patterns/abstract-factory';
+import { AbstractFactory } from './creational-patterns/abstractFactory';
 // import { Builder } from './creational-patterns/builder';
 import { Prototype } from './creational-patterns/prototype';
 import { Singleton } from './creational-patterns/singleton';
@@ -36,7 +36,7 @@ async function mostrarMenu() {
                 choices: [
                     // Creacionales
                     { name: '🏭 Factory Method', value: 'factoryMethod' },
-                    // { name: '🏢 Abstract Factory', value: 'abstractFactory' },
+                    { name: '🏢 Abstract Factory', value: 'abstractFactory' },
                     // { name: '🔨 Builder', value: 'builder' },
                     { name: '🧬 Prototype', value: 'prototype' },
                     { name: '🔒 Singleton', value: 'singleton' },
@@ -72,10 +72,10 @@ async function mostrarMenu() {
                 console.log(`\nEjemplo de Factory Method 🏭\n`);
                 FactoryMethod.main();
                 break;
-            // case 'abstractFactory':
-            //     console.log(`\nEjemplo de Abstract Factory 🏢\n`);
-            //     AbstractFactory.main();
-            //     break;
+            case 'abstractFactory':
+                console.log(`\nEjemplo de Abstract Factory 🏢\n`);
+                AbstractFactory.main();
+                break;
             // case 'builder':
             //     console.log(`\nEjemplo de Builder 🔨\n`);
             //     Builder.main();
