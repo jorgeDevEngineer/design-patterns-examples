@@ -1,7 +1,7 @@
 import inquirer from 'inquirer';
 import { Strategy } from './behavioral-patterns/strategy';
 import { Observer } from './behavioral-patterns/observer';
-// import { FactoryMethod } from './creational-patterns/factory-method';
+import { FactoryMethod } from './creational-patterns/factoryMethod';
 // import { AbstractFactory } from './creational-patterns/abstract-factory';
 // import { Builder } from './creational-patterns/builder';
 import { Prototype } from './creational-patterns/prototype';
@@ -35,7 +35,7 @@ async function mostrarMenu() {
                 message: 'Selecciona un patrón:',
                 choices: [
                     // Creacionales
-                    // { name: '🏭 Factory Method', value: 'factoryMethod' },
+                    { name: '🏭 Factory Method', value: 'factoryMethod' },
                     // { name: '🏢 Abstract Factory', value: 'abstractFactory' },
                     // { name: '🔨 Builder', value: 'builder' },
                     { name: '🧬 Prototype', value: 'prototype' },
@@ -68,10 +68,10 @@ async function mostrarMenu() {
         ]);
 
         switch (respuesta.opcion) {
-            // case 'factoryMethod':
-            //     console.log(`\nEjemplo de Factory Method 🏭\n`);
-            //     FactoryMethod.main();
-            //     break;
+            case 'factoryMethod':
+                console.log(`\nEjemplo de Factory Method 🏭\n`);
+                FactoryMethod.main();
+                break;
             // case 'abstractFactory':
             //     console.log(`\nEjemplo de Abstract Factory 🏢\n`);
             //     AbstractFactory.main();
