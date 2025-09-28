@@ -3,7 +3,7 @@ import { Strategy } from './behavioral-patterns/strategy';
 import { Observer } from './behavioral-patterns/observer';
 import { FactoryMethod } from './creational-patterns/factoryMethod';
 import { AbstractFactory } from './creational-patterns/abstractFactory';
-// import { Builder } from './creational-patterns/builder';
+import { Builder } from './creational-patterns/builder';
 import { Prototype } from './creational-patterns/prototype';
 import { Singleton } from './creational-patterns/singleton';
 import { Adapter } from './structural-patterns/adapter';
@@ -37,7 +37,7 @@ async function mostrarMenu() {
                     // Creacionales
                     { name: '🏭 Factory Method', value: 'factoryMethod' },
                     { name: '🏢 Abstract Factory', value: 'abstractFactory' },
-                    // { name: '🔨 Builder', value: 'builder' },
+                    { name: '🔨 Builder', value: 'builder' },
                     { name: '🧬 Prototype', value: 'prototype' },
                     { name: '🔒 Singleton', value: 'singleton' },
 
@@ -76,10 +76,10 @@ async function mostrarMenu() {
                 console.log(`\nEjemplo de Abstract Factory 🏢\n`);
                 AbstractFactory.main();
                 break;
-            // case 'builder':
-            //     console.log(`\nEjemplo de Builder 🔨\n`);
-            //     Builder.main();
-            //     break;
+            case 'builder':
+                console.log(`\nEjemplo de Builder 🔨\n`);
+                Builder.main();
+                break;
             case 'prototype':
                 console.log(`\nEjemplo de Prototype 🧬\n`);
                 Prototype.main();
