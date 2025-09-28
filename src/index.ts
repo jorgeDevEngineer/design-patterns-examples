@@ -1,23 +1,23 @@
 import inquirer from 'inquirer';
 import { Strategy } from './behavioral-patterns/strategy';
 import { Observer } from './behavioral-patterns/observer';
-// import { FactoryMethod } from './creational-patterns/factory-method';
-// import { AbstractFactory } from './creational-patterns/abstract-factory';
-// import { Builder } from './creational-patterns/builder';
+import { FactoryMethod } from './creational-patterns/factoryMethod';
+import { AbstractFactory } from './creational-patterns/abstractFactory';
+import { Builder } from './creational-patterns/builder';
 import { Prototype } from './creational-patterns/prototype';
 import { Singleton } from './creational-patterns/singleton';
 import { Adapter } from './structural-patterns/adapter';
 // import { Bridge } from './structural-patterns/bridge';
 // import { Composite } from './structural-patterns/composite';
-// import { Decorator } from './structural-patterns/decorator';
+import { Decorator } from './structural-patterns/decorator';
 import { Facade } from './structural-patterns/facade';
 // import { Flyweight } from './structural-patterns/flyweight';
-// import { Proxy } from './structural-patterns/proxy';
+import { Proxy } from './structural-patterns/proxy';
 // import { ChainOfResponsibility } from './behavioral-patterns/chain-of-responsibility';
-// import { Command } from './behavioral-patterns/command';
+import { Command } from './behavioral-patterns/command';
 import { Iterator } from './behavioral-patterns/iterator';
 // import { Mediator } from './behavioral-patterns/mediator';
-// import { Memento } from './behavioral-patterns/memento';
+import { Memento } from './behavioral-patterns/memento';
 // import { State } from './behavioral-patterns/state';
 import { TemplateMethod } from './behavioral-patterns/templateMethod';
 // import { Visitor } from './behavioral-patterns/visitor';
@@ -35,9 +35,9 @@ async function mostrarMenu() {
                 message: 'Selecciona un patrón:',
                 choices: [
                     // Creacionales
-                    // { name: '🏭 Factory Method', value: 'factoryMethod' },
-                    // { name: '🏢 Abstract Factory', value: 'abstractFactory' },
-                    // { name: '🔨 Builder', value: 'builder' },
+                    { name: '🏭 Factory Method', value: 'factoryMethod' },
+                    { name: '🏢 Abstract Factory', value: 'abstractFactory' },
+                    { name: '🔨 Builder', value: 'builder' },
                     { name: '🧬 Prototype', value: 'prototype' },
                     { name: '🔒 Singleton', value: 'singleton' },
 
@@ -45,18 +45,18 @@ async function mostrarMenu() {
                     { name: '🔌 Adapter', value: 'adapter' },
                     // { name: '🌉 Bridge', value: 'bridge' },
                     // { name: '🌿 Composite', value: 'composite' },
-                    // { name: '🎨 Decorator', value: 'decorator' },
+                    { name: '🎨 Decorator', value: 'decorator' },
                     { name: '🎭 Facade', value: 'facade' },
                     // { name: '🪶 Flyweight', value: 'flyweight' },
-                    // { name: '🕵️ Proxy', value: 'proxy' },
+                    { name: '🕵️ Proxy', value: 'proxy' },
 
                     // Comportamiento
                     // { name: '🔗 Chain of Responsibility', value: 'chain' },
-                    // { name: '🧾 Command', value: 'command' },
+                    { name: '🧾 Command', value: 'command' },
                     { name: '📚 Iterator', value: 'iterator' },
                     // { name: '🗣️ Mediator', value: 'mediator' },
-                    // { name: '🧠 Memento', value: 'memento' },
-                    { name: '👀 Observer', value: 'observer' },
+                    { name: '🧠 Memento', value: 'memento' },
+                    //{ name: '👀 Observer', value: 'observer' },
                     // { name: '🔄 State', value: 'state' },
                     { name: '🧠 Strategy', value: 'strategy' },
                     { name: '📋 Template Method', value: 'templateMethod' },
@@ -68,18 +68,18 @@ async function mostrarMenu() {
         ]);
 
         switch (respuesta.opcion) {
-            // case 'factoryMethod':
-            //     console.log(`\nEjemplo de Factory Method 🏭\n`);
-            //     FactoryMethod.main();
-            //     break;
-            // case 'abstractFactory':
-            //     console.log(`\nEjemplo de Abstract Factory 🏢\n`);
-            //     AbstractFactory.main();
-            //     break;
-            // case 'builder':
-            //     console.log(`\nEjemplo de Builder 🔨\n`);
-            //     Builder.main();
-            //     break;
+            case 'factoryMethod':
+                console.log(`\nEjemplo de Factory Method 🏭\n`);
+                FactoryMethod.main();
+                break;
+            case 'abstractFactory':
+                console.log(`\nEjemplo de Abstract Factory 🏢\n`);
+                AbstractFactory.main();
+                break;
+            case 'builder':
+                console.log(`\nEjemplo de Builder 🔨\n`);
+                Builder.main();
+                break;
             case 'prototype':
                 console.log(`\nEjemplo de Prototype 🧬\n`);
                 Prototype.main();
@@ -100,10 +100,10 @@ async function mostrarMenu() {
             //     console.log(`\nEjemplo de Composite 🌿\n`);
             //     Composite.main();
             //     break;
-            // case 'decorator':
-            //     console.log(`\nEjemplo de Decorator 🎨\n`);
-            //     Decorator.main();
-            //     break;
+            case 'decorator':
+                console.log(`\nEjemplo de Decorator 🎨\n`);
+                Decorator.main();
+                break;
             case 'facade':
                 console.log(`\nEjemplo de Facade 🎭\n`);
                 Facade.main();
@@ -112,18 +112,18 @@ async function mostrarMenu() {
             //     console.log(`\nEjemplo de Flyweight 🪶\n`);
             //     Flyweight.main();
             //     break;
-            // case 'proxy':
-            //     console.log(`\nEjemplo de Proxy 🕵️\n`);
-            //     Proxy.main();
-            //     break;
+            case 'proxy':
+                console.log(`\nEjemplo de Proxy 🕵️\n`);
+                Proxy.main();
+                break;
             // case 'chain':
             //     console.log(`\nEjemplo de Chain of Responsibility 🔗\n`);
             //     ChainOfResponsibility.main();
             //     break;
-            // case 'command':
-            //     console.log(`\nEjemplo de Command 🧾\n`);
-            //     Command.main();
-            //     break;
+            case 'command':
+                console.log(`\nEjemplo de Command 🧾\n`);
+                Command.main();
+                break;
             case 'iterator':
                 console.log(`\nEjemplo de Iterator 📚\n`);
                 Iterator.main();
@@ -132,10 +132,10 @@ async function mostrarMenu() {
             //     console.log(`\nEjemplo de Mediator 🗣️\n`);
             //     Mediator.main();
             //     break;
-            // case 'memento':
-            //     console.log(`\nEjemplo de Memento 🧠\n`);
-            //     Memento.main();
-            //     break;
+            case 'memento':
+                console.log(`\nEjemplo de Memento 🧠\n`);
+                Memento.main();
+                break;
             case 'observer':
                 console.log(`\nEjemplo de Observer 👀\n`);
                 Observer.main();
