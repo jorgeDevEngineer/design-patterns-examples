@@ -8,7 +8,7 @@ import { Prototype } from './creational-patterns/prototype';
 import { Singleton } from './creational-patterns/singleton';
 import { Adapter } from './structural-patterns/adapter';
 // import { Bridge } from './structural-patterns/bridge';
-// import { Composite } from './structural-patterns/composite';
+import { Composite } from './structural-patterns/composite';
 import { Decorator } from './structural-patterns/decorator';
 import { Facade } from './structural-patterns/facade';
 // import { Flyweight } from './structural-patterns/flyweight';
@@ -44,7 +44,7 @@ async function mostrarMenu() {
                     // Estructurales
                     { name: '🔌 Adapter', value: 'adapter' },
                     // { name: '🌉 Bridge', value: 'bridge' },
-                    // { name: '🌿 Composite', value: 'composite' },
+                    { name: '🌿 Composite', value: 'composite' },
                     { name: '🎨 Decorator', value: 'decorator' },
                     { name: '🎭 Facade', value: 'facade' },
                     // { name: '🪶 Flyweight', value: 'flyweight' },
@@ -96,10 +96,10 @@ async function mostrarMenu() {
             //     console.log(`\nEjemplo de Bridge 🌉\n`);
             //     Bridge.main();
             //     break;
-            // case 'composite':
-            //     console.log(`\nEjemplo de Composite 🌿\n`);
-            //     Composite.main();
-            //     break;
+            case 'composite':
+                console.log(`\nEjemplo de Composite 🌿\n`);
+                Composite.main();
+                break;
             case 'decorator':
                 console.log(`\nEjemplo de Decorator 🎨\n`);
                 Decorator.main();

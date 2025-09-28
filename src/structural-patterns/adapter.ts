@@ -7,7 +7,80 @@
  * une ambos sistemas.
  */
 
+// La Interfaz que nuestra aplicación ya utiliza
+interface IPasarelaPago {
+    procesarPago(monto: number): void;
+    obtenerEstado(): string;
+}
 
+// Implementación original que cumple con la interfaz
+class PayPalService implements IPasarelaPago {
+    procesarPago(monto: number): void {
+        console.log(`[PayPalService] Pago de $${monto.toFixed(2)} procesado.`);
+    }
+
+    obtenerEstado(): string {
+        return "[PayPalService] Conectado y listo.";
+    }
+}
+
+// La librería externa con una interfaz incompatible
+class StripeAPI {
+    sendTransaction(amount: number, currency: string): boolean {
+        console.log(`[StripeAPI] Enviando transacción de ${amount} ${currency}.`);
+        return true; // Simula éxito
+    }
+
+    getConnectivityStatus(): string {
+        return "Conexión Stripe OK.";
+    }
+}
+
+// El Adaptador que convierte la API de Stripe
+class StripeAdapter implements IPasarelaPago {
+    private stripe: StripeAPI;
+
+    constructor(stripeInstance: StripeAPI) {
+        this.stripe = stripeInstance;
+    }
+
+    // Adaptamos 'procesarPago' a 'sendTransaction'
+    procesarPago(monto: number): void {
+        // El adaptador realiza la traducción de la llamada y parámetros
+        const resultado = this.stripe.sendTransaction(monto, "USD");
+        if (resultado) {
+            console.log("[StripeAdapter] Pago exitoso a través de Stripe.");
+        }
+    }
+
+    // Adaptamos 'obtenerEstado' a 'getConnectivityStatus'
+    obtenerEstado(): string {
+        // El adaptador devuelve el estado en el formato esperado
+        return "[StripeAdapter] Estado: " + this.stripe.getConnectivityStatus();
+    }
+}
+
+
+export class Adapter {
+    public static main(): void {
+
+        function ejecutarPago(pasarela: IPasarelaPago, monto: number): void {
+            console.log(`\n--- Ejecutando con ${pasarela.obtenerEstado()} ---`);
+            pasarela.procesarPago(monto);
+            console.log("--------------------------------------------------");
+        }
+        // 1. Uso del servicio original
+        const paypal = new PayPalService();
+        ejecutarPago(paypal, 50.75);
+
+        // 2. Uso del nuevo servicio, adaptado
+        const stripeIncompatible = new StripeAPI();
+        const stripeAdaptado = new StripeAdapter(stripeIncompatible);
+        ejecutarPago(stripeAdaptado, 120.50);
+    }
+}
+
+/*
 interface EnglishSpeaker {
     sayHello(): string;
 }
@@ -54,3 +127,4 @@ export class Adapter {
         console.log(traductor.sayHello()); 
     }
 }
+    */
