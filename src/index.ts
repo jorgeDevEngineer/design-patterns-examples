@@ -1,8 +1,8 @@
 import inquirer from 'inquirer';
 import { Strategy } from './behavioral-patterns/strategy';
 import { Observer } from './behavioral-patterns/observer';
-import { FactoryMethod } from './creational-patterns/factoryMethod';
-import { AbstractFactory } from './creational-patterns/abstractFactory';
+import { FactoryMethodPattern } from './creational-patterns/factoryMethod';
+import { AbstractFactoryPattern } from './creational-patterns/abstractFactory';
 import { Builder } from './creational-patterns/builder';
 import { Prototype } from './creational-patterns/prototype';
 import { Singleton } from './creational-patterns/singleton';
@@ -70,11 +70,11 @@ async function mostrarMenu() {
         switch (respuesta.opcion) {
             case 'factoryMethod':
                 console.log(`\nEjemplo de Factory Method 🏭\n`);
-                FactoryMethod.main();
+                FactoryMethodPattern.main();
                 break;
             case 'abstractFactory':
                 console.log(`\nEjemplo de Abstract Factory 🏢\n`);
-                AbstractFactory.main();
+                AbstractFactoryPattern.main();
                 break;
             case 'builder':
                 console.log(`\nEjemplo de Builder 🔨\n`);

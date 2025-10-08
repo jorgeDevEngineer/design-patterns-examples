@@ -1,75 +1,72 @@
 // Factory Method Pattern Example
-interface IProductPanaderia {
-    venderse(): void;
-}
-
-abstract class PanaderiaFactory {
-    public abstract factoryMethod(): IProductPanaderia;
-    public ejecutarVenta(): void {
-        const producto = this.factoryMethod();
-        producto.venderse();
-    }
+interface IProduct {
+    eat(): void;
 }
 
 // Concrete Creators
-class Pan implements IProductPanaderia {
-    venderse(): void {
-        console.log("Vendiendo pan 🍞");
+class Bread implements IProduct {
+    eat(): void {
+        console.log("Eatin a bread 🍞");
     }
 }
 
-class Pastel implements IProductPanaderia {
-    venderse(): void {
-        console.log("Vendiendo pastel 🎂");
+class Cake implements IProduct {
+    eat(): void {
+        console.log("Eatin a cake 🎂");
     }
 }
 
-class Galleta implements IProductPanaderia {
-    venderse(): void {
-        console.log("Vendiendo galleta 🍪");
-    }
-}
-// Concrete Creators
-class PanConcreteFactory extends PanaderiaFactory {
-    public factoryMethod(): IProductPanaderia {
-        return new Pan();
-    }
-}
-class PastelConcreteFactory extends PanaderiaFactory {
-    public factoryMethod(): IProductPanaderia {
-        return new Pastel();
+class Cookie implements IProduct {
+    eat(): void {
+        console.log("Eatin a cookie 🍪");
     }
 }
 
-class GalletaConcreteFactory extends PanaderiaFactory {
-    public factoryMethod(): IProductPanaderia {
-        return new Galleta();
+abstract class Factory {
+    public abstract createBread(): IProduct;
+    public abstract createCookie(): IProduct;
+    public abstract createCake(): IProduct;
+}
+
+//Concrete Factory
+class BakeryFactory implements Factory {
+    public createBread(): IProduct {
+        return new Bread();
+    }
+    public createCookie(): IProduct {
+        return new Cookie();
+    }
+    public createCake(): IProduct {
+        return new Cake();
     }
 }
 
 class Cliente {
-    public ordenarProducto(creador: PanaderiaFactory): void {
-        console.log("Cliente: Hago el pedido y dejo que la fábrica se encargue de crearlo.");
-        creador.ejecutarVenta();
-        console.log("Cliente: Pedido completado.");
+    private cookie: IProduct;
+    private cake: IProduct;
+    private bread: IProduct;
+
+    public factory: Factory;
+
+    constructor() {
+        this.factory = new BakeryFactory(); 
+        console.log("Preparing some products with my personal factory 🏭");
+        this.cake = this.factory.createCake();
+        this.bread = this.factory.createBread();
+        this.cookie = this.factory.createCookie();
+    }
+    public eatProduct(): void {
+        console.log("Eating some products 😋");
+        this.bread.eat();
+        this.cake.eat();
+        this.cookie.eat();
     }
 }
 
-export class FactoryMethod {
+export class FactoryMethodPattern {
     public static main(): void {
-        console.log("Ejemplo del Patrón Factory Method");
+        console.log("Example of Factory Method Pattern");
         const cliente = new Cliente();
-
-        console.log("Cliente necesita Pan:");
-        // El cliente le pasa un creador de Pan
-        cliente.ordenarProducto(new PanConcreteFactory());
-
-        console.log("Cliente necesita Pastel:");
-        // El cliente le pasa un creador de Pastel
-        cliente.ordenarProducto(new PastelConcreteFactory());
-
-        console.log("Cliente necesita Galleta:");
-        // El cliente le pasa un creador de Galleta
-        cliente.ordenarProducto(new GalletaConcreteFactory());
+        cliente.eatProduct();
     }
 }
