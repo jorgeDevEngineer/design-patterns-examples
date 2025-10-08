@@ -4,7 +4,7 @@ import { Observer } from './behavioral-patterns/observer';
 import { FactoryMethodPattern } from './creational-patterns/factoryMethod';
 import { AbstractFactoryPattern } from './creational-patterns/abstractFactory';
 import { Builder } from './creational-patterns/builder';
-import { Prototype } from './creational-patterns/prototype';
+import { PrototypePattern } from './creational-patterns/prototype';
 import { Singleton } from './creational-patterns/singleton';
 import { Adapter } from './structural-patterns/adapter';
 // import { Bridge } from './structural-patterns/bridge';
@@ -82,7 +82,7 @@ async function mostrarMenu() {
                 break;
             case 'prototype':
                 console.log(`\nEjemplo de Prototype 🧬\n`);
-                Prototype.main();
+                PrototypePattern.main();
                 break;
             case 'singleton':
                 console.log(`\nEjemplo de Singleton 🔒\n`);

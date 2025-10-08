@@ -1,80 +1,71 @@
-/*
- * Este código implementa el **Patrón Prototype**, que nos permite crear nuevos objetos
- * copiando un objeto existente sin que nuestro código dependa de sus clases concretas.
- * El proceso de clonación es delegado a los propios objetos, que saben cómo duplicarse
- * a sí mismos y a sus propiedades. Esto es útil para generar de forma eficiente
- * múltiples copias de un objeto base, como un batallón de soldados idénticos,
- * sin tener que pasar por un proceso de inicialización complejo cada vez.
- * El patrón es especialmente útil para evitar el acoplamiento y reducir el código
- * repetitivo en la creación de objetos.
- */
-/*
-Prototipo base para un soldado
-*/
-class Soldado {
+//Prototype pattern
+// 🛡️ Clase Compuesta: Representa el arma del soldado.
+class Weapon {
+  public name: string;
+  public power: number;
+
+  // Constructor de Inicialización
+  constructor(name: string, power: number) {
+      this.name = name;
+      this.power = power;
+  }
+
+  // Constructor de Copia (para clonación profunda)
+  public clone(): Weapon {
+      return new Weapon(this.name, this.power);
+  }
+}
+
+class Soldier {
   ID: number;
-  rango: string;
-  equipo: string[];
+  rank: string;
+  equipment: string[];
+  primaryWeapon: Weapon; 
 
-  // Firmas del constructor
-  constructor(ID: number, rango: string, equipo: string[]);
-  constructor(soldado: Soldado);
+  constructor(ID: number, rank: string, equipment: string[], weapon: Weapon);
+  constructor(soldier: Soldier);
 
-  // Implementación única
-  constructor(IDOrSoldado: number | Soldado, rango?: string, equipo?: string[]) {
-    if (typeof IDOrSoldado === 'number') {
-      // Caso: parámetros individuales
-      this.ID = IDOrSoldado;
-      this.rango = rango!;
-      this.equipo = equipo!;
-    } else {
-      // Caso: objeto Soldado
-      this.ID = IDOrSoldado.ID;
-      this.rango = IDOrSoldado.rango;
-      this.equipo = [...IDOrSoldado.equipo];
-    }
+  constructor(IDOrSoldier: number | Soldier, rank?: string, equipment?: string[], weapon?: Weapon) {
+      if (typeof IDOrSoldier === 'number') {
+          this.ID = IDOrSoldier;
+          this.rank = rank!;
+          this.equipment = equipment!;
+          this.primaryWeapon = weapon!;
+      } else {
+          this.ID = IDOrSoldier.ID;
+          this.rank = IDOrSoldier.rank;
+          //Two examples of deep clone here
+          this.equipment = [...IDOrSoldier.equipment]; 
+          this.primaryWeapon = IDOrSoldier.primaryWeapon.clone(); 
+      }
   }
-  clone(): Soldado {
-    return new Soldado(this);
-  }
-
-}
-
-class Stormtrooper extends Soldado {
-  legion: string;
-  constructor(source: Stormtrooper) {
-    super(source);
-    this.legion = source.legion;
-  }
-  clone(): Stormtrooper {
-    return new Stormtrooper(this);
+  
+  clone(): Soldier {
+      return new Soldier(this as Soldier); // Uso del constructor de copia
   }
 }
 
-export class Prototype {
+export class PrototypePattern {
   public static main(): void {
-    console.log("Creando prototipo de stormtrooper");
-    let prototipo = new Stormtrooper({ ID: 1, rango: "soldado", equipo: ["blaster"], legion: "501" } as Stormtrooper);
-    // El 'as Stormtrooper' es necesario para que TypeScript sepa el tipo correcto
+      console.log("--- Inicialización del Prototipo ---");
+      // Inicializamos el prototipo con un arma
+      const baseWeapon = new Weapon("E-11 Blaster", 5);
+      
+      // El prototipo original
+      let prototype = new Soldier(1, "soldier",["Thermal Detonator"], baseWeapon);
 
-    const batallon: Stormtrooper[] = [];
-    for (let index = 0; index < 4; index++) {
-      const nuevoStormtrooper = prototipo.clone();
-      batallon.push(nuevoStormtrooper);
-      batallon[index].ID = index + 1900; // Asignar un ID único]
-    }
+      // 1. Clonar
+      const clone1 = prototype.clone() ;
+      
+      // 2. Modificar el clon
+      clone1.ID = 1900;
+      clone1.primaryWeapon.power = 8; // 🔥 Modificamos una propiedad del objeto anidado
+      clone1.equipment.push("Grappling Hook"); // Modificamos el arreglo
 
-    console.log("Batallon creado");
-
-    batallon.forEach(stormtrooper => {
-      console.log(`Stormtrooper ID: ${stormtrooper.ID}, Rango: ${stormtrooper.rango}, Legion: ${stormtrooper.legion}, Equipo: ${stormtrooper.equipo.join(", ")}`);
-    });
-
-    console.log("Original:", {
-      ID: prototipo.ID,
-      rango: prototipo.rango,
-      equipo: prototipo.equipo,
-      legion: prototipo.legion
-    });
+      console.log("--- Verificación de Independencia (Clonación Profunda) ---");
+      console.log(`Clon ID: ${clone1.ID} | Weapon Power: ${clone1.primaryWeapon.power} | Equipment: ${clone1.equipment.join(", ")}`);
+      console.log(`Original ID: ${prototype.ID} | Weapon Power: ${prototype.primaryWeapon.power} | Equipment: ${prototype.equipment.join(", ")}`);
+      // Prueba de Independencia
+      console.log("\n¿El objeto 'Weapon' es el mismo en memoria? Debería ser false. Resultado: ", prototype.primaryWeapon === clone1.primaryWeapon);
   }
-} 
+}
