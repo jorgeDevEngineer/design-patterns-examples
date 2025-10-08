@@ -1,83 +1,111 @@
-abstract class AbstractPanaderia{
-    public abstract factoryMethodPan(): AbstractProductPan;
-    public abstract factoryMethodTorta(): AbstractProductTorta;
+//Interface for Products
+interface IProductBread {
+    eat(): void;
 }
 
-interface AbstractProductPan {
-    sound(): void;
+interface IProductDessert {
+    eat(): void;
 }
 
-interface AbstractProductTorta {
-    sound(): void;
-}
-
-class ConcreteProductPanNormal implements AbstractProductPan {
-    sound(): void {
-        console.log("Product A1 sound: Beep Beep!");
+//Family of two products. 
+class NormalBread implements IProductBread {
+    eat(): void {
+        console.log("Eating regular Bread 🍞");
     }
 }
 
-class ConcreteProductPanSinGluten implements AbstractProductPan {
-    sound(): void {
-        console.log("Product A2 sound: Boop Boop!");
+class GlutenFreeBread implements IProductBread {
+    eat(): void {
+        console.log("Eating gluten-free Bread 🫓");
     }
 }
 
-class ConcreteProductTortaNormal implements AbstractProductTorta {
-    sound(): void {
-        console.log("Product B2 sound: Tun Tun!");
+class NormalCake implements IProductDessert {
+    eat(): void {
+        console.log("Eating regular Cake 🎂");
     }
 }
 
-class ConcreteProductTortaSinAzucar implements AbstractProductTorta {
-    sound(): void {
-        console.log("Product B1 sound: Tan Tan!");
+class SugarFreeCake implements IProductDessert {
+    eat(): void {
+        console.log("Eating sugar-free Cake 🍮");
     }
 }
 
-class ConcreteFactoryPanaderiaComun implements AbstractPanaderia {
-    factoryMethodPan(): AbstractProductPan {
-        return new ConcreteProductPanNormal();
+//Abstract Factory
+abstract class BakeryFactory {
+    public abstract createBread(): IProductBread;
+    public abstract createCake(): IProductDessert;
+}
+
+
+//Concretes factories
+class RegularBakery implements BakeryFactory {
+    createBread(): IProductBread {
+        return new NormalBread();
     }  
-    public factoryMethodTorta(): AbstractProductTorta {
-        return new ConcreteProductTortaNormal();
+    public createCake(): IProductDessert {
+        return new NormalCake();
     }
 }
 
-class ConcreteFactoryPanaderiaInclusiva implements AbstractPanaderia {
-    factoryMethodPan(): AbstractProductPan {
-        return new ConcreteProductPanSinGluten();
+class FitnessBakery implements BakeryFactory {
+    createBread(): IProductBread {
+        return new GlutenFreeBread();
     }  
-    public factoryMethodTorta(): AbstractProductTorta {
-        return new ConcreteProductTortaSinAzucar();
+    public createCake(): IProductDessert {
+        return new SugarFreeCake();
     }
 }
 
-class Cliente {
-    private factory: AbstractPanaderia;
-    private productA: AbstractProductPan;
-    private productB: AbstractProductTorta;
+//Clients
 
-    constructor(factory: AbstractPanaderia) {
-        this.factory = factory;
-        this.productA = this.factory.factoryMethodPan();
-        this.productB = this.factory.factoryMethodTorta();
+interface Client {
+    factory: BakeryFactory;
+    eatProducts(): void;
+}
+class NormalClient implements Client{
+    factory: BakeryFactory;
+    bread: IProductBread;
+    cake: IProductDessert;
+
+    constructor() {
+        this.factory = new RegularBakery();
+        this.bread = this.factory.createBread();
+        this.cake = this.factory.createCake();
     }
 
-    public interact(): void {
-        this.productA.sound();
-        this.productB.sound();
+    public eatProducts(): void {
+        this.bread.eat();
+        this.cake.eat();
     }
 }
 
-export class AbstractFactory {
+class FitnessClient {
+    factory: BakeryFactory;
+    bread: IProductBread;
+    cake: IProductDessert;
+
+    constructor() {
+        this.factory = new FitnessBakery();
+        this.bread = this.factory.createBread();
+        this.cake = this.factory.createCake();
+    }
+
+    public eatProducts(): void {
+        this.bread.eat();
+        this.cake.eat();
+    }
+}
+
+export class AbstractFactoryPattern {
     public static main(): void {
-        console.log("Ejemplo del Patrón Abstract Factory");
+        console.log("Example of Abstract Factory Pattern");
         
-        const cliente1 = new Cliente(new ConcreteFactoryPanaderiaComun());
-        cliente1.interact();
+        const cliente1 = new FitnessClient();
+        cliente1.eatProducts();
 
-        const cliente2 = new Cliente(new ConcreteFactoryPanaderiaInclusiva());
-        cliente2.interact();
+        const cliente2 = new NormalClient();
+        cliente2.eatProducts();
     }
 }
