@@ -1,6 +1,10 @@
 //Prototype pattern
+interface Prototype<T> {
+  clone(): T;
+}
+
 // 🛡️ Clase Compuesta: Representa el arma del soldado.
-class Weapon {
+class Weapon implements Prototype<Weapon> {
   public name: string;
   public power: number;
 
@@ -16,7 +20,7 @@ class Weapon {
   }
 }
 
-class Soldier {
+class Soldier implements Prototype<Soldier> {
   ID: number;
   rank: string;
   equipment: string[];
